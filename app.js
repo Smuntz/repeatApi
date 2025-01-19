@@ -39,7 +39,7 @@ app.post('/stringReturn', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 10000; // Use the PORT provided by Render or default to 10000
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
