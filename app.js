@@ -18,7 +18,7 @@ app.post('/stringReturn', (req, res) => {
     }
 
     // Send back the same string as the response
-    res.json({ echoed: input });
+    res.json({ returnString: input });
 });
 
 // Start the server
