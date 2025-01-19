@@ -25,14 +25,16 @@ Install with npm
 
 #### POST Array
 
-```http
+```
   POST /stringReturn
 ```
+
+
 ### Header
 Content-Type: application/json
 
 ### Body
-```http
+```json
  {
     "input": [
         "{\"key\":\"Value\"}","{\"key\":\"Value\"}"
@@ -44,7 +46,7 @@ Example of two JSON objects being passed to the API in the body.
 NOTE: that quotes must be escaped using a backslash.
 
 ### Response
-```http
+```json
 {
     "returnString": [
         "{\"key\":\"Value\"}",
@@ -62,7 +64,7 @@ NOTE: that quotes must be escaped using a backslash.
 ```
 
 ### Curl
-```http
+```curl
 curl -X POST http://localhost:10000/stringReturn \
 -H "Content-Type: application/json" \
 -d '{
