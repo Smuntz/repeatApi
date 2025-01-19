@@ -13,20 +13,28 @@ app.post('/stringReturn', (req, res) => {
     const { input } = req.body;
 
     // Check if the input is provided and is a string
-    if (typeof input !== 'string') {
-        return res.status(400).json({ error: 'Invalid input. Please provide a string.' });
+    if (!Array.isArray(input)) {
+        return res.status(400).json({ error: 'Invalid input. Please provide an array of strings.' });
     }
 
     try {
-        // Try to parse the input string to ensure it's valid JSON
-        const parsed = JSON.parse(input);
-        console.log('Parsed JSON:', parsed); // Optional: For debugging purposes
+        // Iterate through the array to validate and parse each string
+        const parsedItems = input.map((item) => {
+            if (typeof item !== 'string') {
+                throw new Error('Invalid array item: All items must be strings.');
+            }
+            // Try parsing the string as JSON
+            return JSON.parse(item);
+        });
 
-        // Return the same string as the response
-        res.json({ returnString: input });
+        // Return the original input along with the parsed results
+        res.json({
+            returnString: input,
+            parsed: parsedItems, // Optional: Include parsed data if needed
+        });
     } catch (err) {
         // Handle JSON parsing errors
-        return res.status(400).json({ error: 'Input string is not valid JSON.' });
+        return res.status(400).json({ error: 'One or more items in the input array are not valid JSON strings.' });
     }
 });
 
