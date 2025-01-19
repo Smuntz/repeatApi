@@ -1,5 +1,5 @@
 
-# Parse Array of JSON objects 
+# API - Parse Array of JSON objects 
 
 This API only has one function and that is to parse an array of JSON objects and return the original input as a text string and a JSON object with the parsed JSON.
 
