@@ -18,9 +18,10 @@ Install with npm
 ```bash
   npm install
 
-  /*run*/
+  /* run */
   node app.js
   ```
+  
 ## API Reference
 
 #### POST Array
@@ -37,7 +38,8 @@ Content-Type: application/json
 ```json
  {
     "input": [
-        "{\"key\":\"Value\"}","{\"key\":\"Value\"}"
+        "{\"key\":\"Value1\",\"key1\":\"Value2\"}",
+        "{\"key\":\"Value3\",\"key1\":\"Value4\"}"
     ]
  }   
 ```
@@ -49,15 +51,17 @@ NOTE: that quotes must be escaped using a backslash.
 ```json
 {
     "returnString": [
-        "{\"key\":\"Value\"}",
-        "{\"key\":\"Value\"}"
+        "{\"key\":\"Value1\",\"key1\":\"Value2\"}",
+        "{\"key\":\"Value3\",\"key1\":\"Value4\"}"
     ],
     "parsed": [
         {
-            "key": "Value"
+            "key": "Value1",
+            "key1": "Value2"
         },
         {
-            "key": "Value"
+            "key": "Value3",
+            "key1": "Value4"
         }
     ]
 }
